@@ -9,7 +9,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:1000',
+        target: 'https://school-management-theta-brown.vercel.app',
         changeOrigin: true,
         secure: false
       }

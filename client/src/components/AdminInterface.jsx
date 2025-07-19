@@ -19,8 +19,8 @@ export default function AdminInterface() {
     if (!user) return;
     setLoading(true);
     Promise.all([
-      axios.get("http://localhost:1000/api/auth/users", { headers: { Authorization: `Bearer ${token}` } }),
-      axios.get("http://localhost:1000/api/classes", { headers: { Authorization: `Bearer ${token}` } }),
+      axios.get("https://school-management-theta-brown.vercel.app/api/auth/users", { headers: { Authorization: `Bearer ${token}` } }),
+      axios.get("https://school-management-theta-brown.vercel.app/api/classes", { headers: { Authorization: `Bearer ${token}` } }),
     ])
       .then(([userRes, classRes]) => {
         setUsers(userRes.data);
@@ -45,21 +45,21 @@ export default function AdminInterface() {
     try {
       if (editUser) {
         await axios.put(
-          `http://localhost:1000/api/auth/users/${editUser._id}`,
+          `https://school-management-theta-brown.vercel.app/api/auth/users/${editUser._id}`,
           { ...form },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMessage("User updated!");
       } else {
         await axios.post(
-          "http://localhost:1000/api/auth/register",
+          "https://school-management-theta-brown.vercel.app/api/auth/register",
           form,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setMessage("User created!");
       }
       setShowUserForm(false);
-      const res = await axios.get("http://localhost:1000/api/auth/users", { headers: { Authorization: `Bearer ${token}` } });
+      const res = await axios.get("https://school-management-theta-brown.vercel.app/api/auth/users", { headers: { Authorization: `Bearer ${token}` } });
       setUsers(res.data);
     } catch (err) {
       setMessage(err.response?.data?.error || "Error saving user.");
@@ -70,7 +70,7 @@ export default function AdminInterface() {
     if (!window.confirm("Delete this user?")) return;
     setMessage("");
     try {
-      await axios.delete(`http://localhost:1000/api/auth/users/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://school-management-theta-brown.vercel.app/api/auth/users/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       setMessage("User deleted!");
       setUsers(users.filter((u) => u._id !== id));
     } catch (err) {
@@ -83,13 +83,13 @@ export default function AdminInterface() {
     setMessage("");
     try {
       await axios.post(
-        "http://localhost:1000/api/classes",
+        "https://school-management-theta-brown.vercel.app/api/classes",
         classForm,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setMessage("Class created!");
       setClassForm({ name: "", subject: "", teacherId: "" });
-      const res = await axios.get("http://localhost:1000/api/classes", { headers: { Authorization: `Bearer ${token}` } });
+      const res = await axios.get("https://school-management-theta-brown.vercel.app/api/classes", { headers: { Authorization: `Bearer ${token}` } });
       setClasses(res.data);
     } catch (err) {
       setMessage(err.response?.data?.error || "Error creating class.");

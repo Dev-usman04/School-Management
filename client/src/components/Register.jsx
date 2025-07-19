@@ -25,7 +25,7 @@ export default function Register() {
     setError("");
     setSuccess("");
     try {
-      await axios.post("http://localhost:1000/api/auth/register", form);
+      await axios.post("https://school-management-theta-brown.vercel.app/api/auth/register", form);
       setSuccess("Registration successful! You can now log in.");
       setTimeout(() => navigate("/login"), 1500);
     } catch (err) {

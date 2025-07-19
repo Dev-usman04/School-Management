@@ -18,7 +18,7 @@ export default function TeacherInterface() {
     if (!user) return;
     setLoading(true);
     axios
-      .get("http://localhost:1000/api/classes", {
+      .get("https://school-management-theta-brown.vercel.app/api/classes", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -33,7 +33,7 @@ export default function TeacherInterface() {
     if (!selectedClass) return setStudents([]);
     setLoading(true);
     axios
-      .get("http://localhost:1000/api/auth/students", {
+      .get("https://school-management-theta-brown.vercel.app/api/auth/students", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -50,7 +50,7 @@ export default function TeacherInterface() {
       await Promise.all(
         students.map((student) =>
           axios.post(
-            "http://localhost:1000/api/attendance",
+            "https://school-management-theta-brown.vercel.app/api/attendance",
             {
               studentId: student._id,
               classId: selectedClass._id,
@@ -74,7 +74,7 @@ export default function TeacherInterface() {
         students.map((student) =>
           marks[student._id] != null && marks[student._id] !== ""
             ? axios.post(
-                "http://localhost:1000/api/marks",
+                "https://school-management-theta-brown.vercel.app/api/marks",
                 {
                   studentId: student._id,
                   classId: selectedClass._id,

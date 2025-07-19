@@ -156,9 +156,9 @@ export default function StudentDashboard() {
     const headers = { Authorization: `Bearer ${token}` };
 
     Promise.all([
-      axios.get("http://localhost:1000/api/classes", { headers }),
-      axios.get(`http://localhost:1000/api/marks/student/${user.id}`, { headers }),
-      axios.get(`http://localhost:1000/api/attendance/student/${user.id}`, { headers }),
+      axios.get("https://school-management-theta-brown.vercel.app/api/classes", { headers }),
+      axios.get(`https://school-management-theta-brown.vercel.app/api/marks/student/${user.id}`, { headers }),
+      axios.get(`https://school-management-theta-brown.vercel.app/api/attendance/student/${user.id}`, { headers }),
     ])
       .then(([classRes, marksRes, attRes]) => {
         setClasses(classRes.data);
@@ -177,14 +177,14 @@ export default function StudentDashboard() {
   // Real-time marks updates
   useEffect(() => {
     if (!user) return;
-    const socket = io("http://localhost:1000");
+    const socket = io("https://school-management-theta-brown.vercel.app");
     socketRef.current = socket;
     socket.on("newMark", (data) => {
       if (data.studentId === user.id) {
         setPopup(`You received a new mark: ${data.marks}!`);
         // Refetch marks
         axios
-          .get(`http://localhost:1000/api/marks/student/${user.id}`, {
+          .get(`https://school-management-theta-brown.vercel.app/api/marks/student/${user.id}`, {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => setMarks(res.data));
