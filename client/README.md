@@ -1,12 +1,14 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+A modern, full-stack school management system built with React, Node.js, and MongoDB. This application provides role-based access control for administrators, teachers, and students with real-time updates and a responsive, animated user interface.
+🚀 Key Features
+Multi-Role Authentication System
+Admin Dashboard: User management, class scheduling, and system oversight
+Teacher Interface: Attendance tracking, grade management, and class administration
+Student Dashboard: View classes, attendance records, and performance analytics
+Core Functionality:
+ User Registration & Authentication (JWT-based)
+ Role-Based Access Control (Admin/Teacher/Student)
+ Class Management with date/time scheduling
+ Attendance Tracking with visual calendar
+ Grade Management with performance charts
+ Real-time Updates via Socket.IO
+ Responsive Design with Tailwind CSS
