@@ -12,3 +12,5 @@ Core Functionality:
  Grade Management with performance charts
  Real-time Updates via Socket.IO
  Responsive Design with Tailwind CSS
+
+ This school management system provides a complete solution for educational institutions looking to digitize their administrative processes with a modern, user-friendly interface and robust backend architecture.
